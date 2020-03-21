@@ -1,7 +1,12 @@
 
 html, body, .flex_container {
   height: 100%;
-  margin: 0;
+  margin: 0px;
+  padding: 0px;
+}
+
+*{
+  box-sizing: border-box;
 }
 
 /*flex container */
@@ -10,6 +15,7 @@ html, body, .flex_container {
   display: flex;
   flex-direction: column;
 }
+
 .flex_fixed {
   flex:none;
 }
@@ -25,7 +31,7 @@ html, body, .flex_container {
   flex: none;
   background-color: grey;
   color: white;
-  padding: 4px 8px;
+  /*padding: 4px 8px;*/
 }
 
 .header {
@@ -39,21 +45,18 @@ html, body, .flex_container {
 .content {
   flex: auto;
   flex-direction: row;
-  top: 100px;
+  /**top: 100px*/
   display: flex
 }
 
 .sidebar {
   flex: 30%;
-  background-color: orange;
+  background-color: whitesmoke;
 }
 
 .main {
   flex: 70%;
-  
-  width: 100%;
   height: 100%;
-  
   background-color: yellow;
 }
 
@@ -66,8 +69,54 @@ html, body, .flex_container {
   height: 50%;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 700px) {
   .content {   
     flex-direction: column;
   }
+}
+
+/* Legend styling*/
+.legend-items{
+  /*To add a margin around the legend*/
+  /*margin-left: 8px;
+  margin-right: 8 px;
+  margin-top: 4px;
+  margin-bottom: 4px;*/
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  /*border: 1px solid black;*/
+}
+
+.legend-symbol, .legend-label{
+  display: inline-block; /*makes the symbol and legend align in the same row*/
+}
+.legend-symbol{
+  height: 14px;
+  width: 14px;
+}
+
+.residential{
+  background-color: #413cdd;
+}
+
+.commercial{
+  background-color: #d30d0d;
+}
+
+.industrial{
+  background-color: #da19eb;
+}
+
+.public{
+  background-color: #08c9d4;
+}
+
+.medical{
+  background-color: #f9983e;
+}
+
+.legend-label{
+  margin-left: 8px;
 }
