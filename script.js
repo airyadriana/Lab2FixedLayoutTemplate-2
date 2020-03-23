@@ -44,7 +44,7 @@ checkboxElementBuildings.onclick = function(e) {
     map.setLayoutProperty('denver-buildings-47eoag', 'visibility', 'none');
     map.setLayoutProperty('denver-buildings-47eoag (1)', 'visibility', 'none');
   }
-}
+};
 
 var checkboxElementFoodStores = document.getElementById('layer-toggle-foodStores');
 
@@ -58,5 +58,32 @@ checkboxElementFoodStores.onclick = function(e) {
     //Turn layer off
     map.setLayoutProperty('food-stores-c8wq25', 'visibility', 'none');
   }
-}
+};
+
+
+//Add building's pop-up on click
+
+map.on('click', 'denver-buildings-47eoag', function(e) {
+  var id = e.features[0].properties.id;
+  var type = e.features[0].properties.type;
+
+  var popUpHTML = [`<p><h3>Building Type:</h3> ${type}</p>
+                  <p><h3>ID:</h3> ${id}</p>`]
+
+  new mapboxgl.Popup()
+    .setLngLat(e.lngLat)
+    //['<h3>'+'Building type:'+'</h3><p>'+type + '</p><h3>'+'ID:'+'</h3><p>'+id+'</p>']
+    .setHTML(popUpHTML)
+    .addTo(map);
+});
+
+// Change the cursor to a crosshair style when the mouse is over the places layer.
+map.on('mouseenter', 'denver-buildings-47eoag', function() {
+  map.getCanvas().style.cursor = 'crosshair';
+});
+ 
+// Change it back to a pointer when it leaves.
+map.on('mouseleave', 'denver-buildings-47eoag', function() {
+  map.getCanvas().style.cursor = '';
+});
 
