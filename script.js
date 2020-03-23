@@ -78,11 +78,15 @@ map.on('click', 'denver-buildings-47eoag', function(e) {
 
   // Find all features at a point
   var feature = map.queryRenderedFeatures(e.point);
-  console.log(displayProperties)
+  console.log(feature)
+
+  // get the coordinates to use with the centroid function from turf.js
+
+
+
 
   // Query all rendered features from a single layer
   var features = map.queryRenderedFeatures({ layers: ['food-stores-c8wq25'] });
-  var test = features[0]
   //console.log(features)
 });
 
