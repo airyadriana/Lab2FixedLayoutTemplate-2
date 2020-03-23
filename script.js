@@ -75,6 +75,15 @@ map.on('click', 'denver-buildings-47eoag', function(e) {
     //['<h3>'+'Building type:'+'</h3><p>'+type + '</p><h3>'+'ID:'+'</h3><p>'+id+'</p>']
     .setHTML(popUpHTML)
     .addTo(map);
+
+  // Find all features at a point
+  var feature = map.queryRenderedFeatures(e.point);
+  console.log(displayProperties)
+
+  // Query all rendered features from a single layer
+  var features = map.queryRenderedFeatures({ layers: ['food-stores-c8wq25'] });
+  var test = features[0]
+  //console.log(features)
 });
 
 // Change the cursor to a crosshair style when the mouse is over the places layer.
