@@ -13,6 +13,7 @@ var nav = new mapboxgl.NavigationControl();
 map.addControl(nav, 'bottom-right');
 
 //Add BASE MAP TILES
+//'https://stamen-tiles.a.ssl.fastly.net/terrain/{z}/{x}/{y}.jpg'
 map.on('load', function() {
 
   //Add layer here
@@ -21,7 +22,9 @@ map.on('load', function() {
     type: 'raster',
     source: {
       type: 'raster',
-      tiles: ['https://stamen-tiles.a.ssl.fastly.net/terrain/{z}/{x}/{y}.jpg']
+      tiles: ['https://a.tile.openstreetmap.org/{z}/{x}/{y}.png',
+             'https://b.tile.openstreetmap.org/{z}/{x}/{y}.png',
+             'https://c.tile.openstreetmap.org/{z}/{x}/{y}.png']
     }
   }, 'denver-buildings-47eoag')
 });
